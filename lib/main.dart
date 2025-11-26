@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:latres/screens/home_screen.dart';
 import 'package:latres/screens/favorite_screen.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+
+  // buka box untuk favorites
+  await Hive.openBox('favorites');
+
   runApp(const AmiboApp());
 }
 
